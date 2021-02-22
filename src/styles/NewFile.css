@@ -20,3 +20,22 @@
 .newFile__container > p {
 	margin-left: 14px;
 }
+
+.heading {
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.white--icon {
+	fill: #fff !important;
+}
+
+.form {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.mb-30 {
+	margin-bottom: 30px;
+}

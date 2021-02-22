@@ -6,6 +6,8 @@ import { storage, db } from "../../firebase";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
+import { Button } from "@material-ui/core";
+import { CloudUpload } from "@material-ui/icons";
 
 function getModalStyle() {
 	return {
@@ -55,7 +57,6 @@ function NewFile() {
 			.ref(`files/${file.name}`)
 			.put(file)
 			.then((snapshot) => {
-				console.log(snapshot);
 				storage
 					.ref("files")
 					.child(file.name)
@@ -96,14 +97,22 @@ function NewFile() {
 				aria-describedby="simple-modal-description"
 			>
 				<div style={modalStyle} className={classes.paper}>
-					<p>Select files you want to upload!</p>
+					<p className="heading mb-30">Select files you want to upload!</p>
 					{uploading ? (
 						<p>Uploading...</p>
 					) : (
-						<>
+						<div className="form">
 							<input type="file" onChange={handleChange} />
-							<button onClick={handleUpload}>Upload</button>
-						</>
+							<Button
+								variant="contained"
+								color="primary"
+								className={classes.button}
+								startIcon={<CloudUpload className="white--icon" />}
+								onClick={handleUpload}
+							>
+								Upload
+							</Button>
+						</div>
 					)}
 				</div>
 			</Modal>
